@@ -1,0 +1,224 @@
+import requests
+from bs4 import BeautifulSoup
+
+url='https://www.milligazete.com.tr/arsiv'
+r=requests.get(url)
+print(r)
+
+
+
+import requests
+from bs4 import BeautifulSoup
+
+url='https://www.milligazete.com.tr/arsiv'
+r=requests.get(url)
+soup=BeautifulSoup(r.content,'html.parser')
+list2= soup.find_all("div",{"class":"col-lg-6"})
+for i in list2:
+    print(i)
+
+
+
+import requests
+from bs4 import BeautifulSoup
+
+url='https://www.milligazete.com.tr/arsiv'
+r=requests.get(url)
+soup=BeautifulSoup(r.content,'html.parser')
+list2= soup.find_all("div",{"class":"col-lg-6"})
+for i in list2:
+   for link in i.findAll('a'): #sayfadaki açılan linkler a-href
+       my_link = link.get('href')+ "\n"
+       print(my_link)
+       bas='https://milligazete.com.tr'
+       yeni_link='{}{}'.format(bas,my_link)
+       print(yeni_link)
+
+
+import requests
+from bs4 import BeautifulSoup
+
+url='https://www.milligazete.com.tr/arsiv'
+r=requests.get(url)
+soup=BeautifulSoup(r.content,'html.parser')
+list2= soup.find_all("div",{"class":"col-lg-6"})
+for i in list2:
+   for link in i.findAll('a'): #sayfadaki açılan linkler a-href
+       my_link = link.get('href')+ "\n"
+       bas='https://milligazete.com.tr'
+       yeni_link='{}{}'.format(bas,my_link)
+       print(yeni_link)
+
+
+
+
+import requests
+from bs4 import BeautifulSoup
+
+url='https://www.milligazete.com.tr/arsiv'
+r=requests.get(url)
+soup=BeautifulSoup(r.content,'html.parser')
+list2= soup.find_all("div",{"class":"col-lg-6"})
+for i in list2: #a ile başlayan kısımların içindeki verileri de çekebilmek için for içinde for kullandık
+   for link in i.findAll('a'): #sayfadaki açılan linkler a-href
+       my_link = link.get('href')+ "\n"
+       bas='https://milligazete.com.tr'
+       yeni_link='{}{}'.format(bas,my_link) # format kalıbı ile ikisini birleşirdik
+       print(yeni_link)
+
+
+
+
+       sınıf=[[{}{}{}],[{}{}{}]]
+            for masa in sınıf:
+           print(masa)
+           for ogr in masa:
+               print(ogr) a,b,d
+
+
+
+
+import requests
+from bs4 import BeautifulSoup
+
+url='https://www.milligazete.com.tr/arsiv'
+r=requests.get(url)
+soup=BeautifulSoup(r.content,'html.parser')
+list2= soup.find_all("div",{"class":"col-lg-6"})
+for i in list2: #a ile başlayan kısımların içindeki verileri de çekebilmek için for içinde for kullandık
+   for link in i.findAll('a'): #sayfadaki açılan linkler a-href
+       my_link = link.get('href')+ "\n"
+       bas='https://milligazete.com.tr'
+       yeni_link='{}{}'.format(bas,my_link) # format kalıbı ile ikisini birleşirdik
+       print(yeni_link)
+
+with open("seyran2.txt","a",encoding="utf-8")as file:
+    file.write(yeni_link.strip() + "\n") #birer satır boşluk bırakmasını engelledik
+
+
+
+
+
+
+urr='https://milligazete.com.tr/iran-ordusu-israil-ve-abd-buyukelcilerini-sinir-disi-eden-arap-veya-avrupa-ulkeleri-hurmuz-bogazindan-gecebilir'
+r=requests.get(url)
+soup=BeautifulSoup(r.content,'html.parser') #sayfanın html'i geldi
+print(soup)
+date = soup.find("time", {"class":"fw-bold"})
+#print(date) #tag ile gelir
+print(date.getText()) 
+
+urr='https://milligazete.com.tr/iran-ordusu-israil-ve-abd-buyukelcilerini-sinir-disi-eden-arap-veya-avrupa-ulkeleri-hurmuz-bogazindan-gecebilir'
+r=requests.get(url)
+soup=BeautifulSoup(r.content,'html.parser') #sayfanın html'i geldi
+print(soup)
+date = soup.find("time", {"class":"fw-bold"})
+title= soup.find("h1")
+#print(date) #tag ile gelir
+print(date.getText())
+
+
+
+
+urr='https://milligazete.com.tr/iran-ordusu-israil-ve-abd-buyukelcilerini-sinir-disi-eden-arap-veya-avrupa-ulkeleri-hurmuz-bogazindan-gecebilir'
+r=requests.get(url)
+soup=BeautifulSoup(r.content,'html.parser') #sayfanın html'i geldi
+print(soup)
+date = soup.find("time", {"class":"fw-bold"})
+title= soup.find("h1").getText() #taglardan kurtardık
+print(title)
+
+
+
+
+icerik = soup.find("div",{"class": "article-text container padding"}).find_all('p'))
+for i in icerik:
+    print(i.getText())
+
+
+
+icerik = (soup.find("div",{"class": "article-text container padding"}).find_all('p'))
+for i in icerik:
+    content+=i.getText()
+print(content) #yazılar tek satıra toplandı
+               
+
+icerik = (soup.find("div",{"class": "article-text container padding"}).find_all('p'))
+for i in icerik:
+    content+=i
+    print(i)
+    content+=i.getText()
+print(content)
+stringle tagı birleştiremez türleri farklı olduğu için bs4 tagı var.
+
+
+
+icerik = (soup.find("div",{"class": "article-text container padding"}).find_all('p'))
+for i in icerik:
+    print(type(i))
+    #content+=i
+    print(i)
+    content+=i.getText()
+print(content) 
+
+
+
+
+icerik = (soup.find("div",{"class": "article-text container padding"}).find_all('p'))
+for i in range icerik:
+    print(type(i))
+    #content+=i
+    print(i)
+    content+=i.getText()
+print(content)
+#bir string bir int çalışmaz
+
+
+icerik = (soup.find("div",{"class": "article-text container padding"}).find_all('p'))
+for i in range(len()) icerik:
+    print(type(i))
+    #content+=i
+    print(i)
+    content+=i.getText()
+print(content)
+
+
+
+url='https://www.milligazete.com.tr/arsiv'
+def url_topla(ur,f_name):
+    r=requests.get(url)
+    soup=BeautifulSoup(r.content,'html.parser')
+    list2= soup.find_all("div",{"class":"col-lg-6"})
+    for i in list2: #a ile başlayan kısımların içindeki verileri de çekebilmek için for içinde for kullandık
+       for link in i.findAll('a'): #sayfadaki açılan linkler a-href
+           my_link = link.get('href')+ "\n"
+           bas='https://milligazete.com.tr'
+           yeni_link='{}{}'.format(bas,my_link) # format kalıbı ile ikisini birleşirdik
+           print(yeni_link)
+
+             with open(f_name,"a",encoding="utf-8")as file:
+                file.write(yeni_link.strip() + "\n") #birer satır boşluk bırakmasını engelledik
+file_name='enes.txt'
+url_topla(url,file_name)
+
+
+from xc import *
+f= open('irem.txt')
+for i in range(18):
+    try:
+        link=f.readline()
+        icerik_topla(link.strip(),'melek2.txt')
+    except:
+        pass
+
+
+  kategori,sadece tarih, veriyi sözlük haline getir ödev
+
+
+
+
+
+
+
+
+
