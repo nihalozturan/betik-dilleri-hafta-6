@@ -1,3 +1,5 @@
+import requests
+from bs4 import BeautifulSoup
 def icerik_topla(urr,f_icerik): #fonksiyon olusturuldu iki parametre aldı
    urr='https://milligazete.com.tr/arsiv/' #çekilecek sayfanın linki değişkene atandı
    r = requests.get(urr) #kütüphane ile web sayfası indiriliyor
