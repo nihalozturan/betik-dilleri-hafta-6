@@ -1,13 +1,14 @@
-def icerik_topla(urr,f_icerik)
-    urr = 'https://www.milligazete.com.tr/arsiv/'
-    r = requests.get(url)
-    soup = BeautifulSoup(r.content, 'html.parser')
-    date=soup.find("time",{"class":"fw-bold"})
-    title=soup.find("h1").getText()
-    content=''
-    icerik=soup.find("div",{"class":"article-text container-padding"}).findall('p')
-    for i in range(len(icerik)):
-        content+=i.getText()
-        son='{} ; {} ; {} ; {}'.format(urr,date,title,content)
-        with open(f_icerik, "a", encoding="utf-8") as file:
-            file.write(son.strip() + "\n")
+def icerik_topla(urr,f_icerik): #fonksiyon olusturuldu iki parametre aldı
+   urr='https://milligazete.com.tr/arsiv/' #çekilecek sayfanın linki değişkene atandı
+   r = requests.get(urr) #kütüphane ile web sayfası indiriliyor
+   soup = BeautifulSoup(r.content,'html.parser') #indirilen sayfanın HTML içeriği BeautifulSoup ile ayrıştırılıyor. Böylece HTML etiketlerine erişebiliriz
+   date=soup.find("time",{"class":"fw-bold"}) #time class=fw-bold haber tarihi çekildi
+   title =soup.find("h1").getText() #sayfadaki h1 etiketi bulunur.getText ile taglardan kurtulundu.
+   content='' #haber metni burada biriktirilecek
+   icerik=soup.find("div",{"class":"article-text container-padding"}).findAll("p") #içeriklerin olduğu div bulunuyor. içindeki p etiketleri çekiliyor.
+   for i in range(len(icerik)):
+       content+=i.getText() #paragraf birleştirme
+       son= '{} ; {} ; {};  {}'.format(urr,date,title,content) #bütün bilgiler tek satırda birleşiyor
+       with open(f_icerik,'a',encoding='utf-8')as file: #dosya açılır. appendle yanına ekler
+           file.write(son.strip() + '\n') #strip baş ve sondaki boşlukları siler. 
+
